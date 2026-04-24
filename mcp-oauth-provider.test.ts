@@ -60,7 +60,7 @@ describe("McpOAuthProvider", () => {
       const provider = createProvider()
       assert.strictEqual(
         provider.redirectUrl,
-        "http://127.0.0.1:19876/mcp/oauth/callback"
+        "http://localhost:19876/callback"
       )
     })
   })
@@ -70,7 +70,7 @@ describe("McpOAuthProvider", () => {
       const provider = createProvider()
       const metadata = provider.clientMetadata
 
-      assert.deepStrictEqual(metadata.redirect_uris, ["http://127.0.0.1:19876/mcp/oauth/callback"])
+      assert.deepStrictEqual(metadata.redirect_uris, ["http://localhost:19876/callback"])
       assert.strictEqual(metadata.client_name, "Pi Coding Agent")
       assert.strictEqual(metadata.client_uri, "https://github.com/nicobailon/pi-mcp-adapter")
       assert.deepStrictEqual(metadata.grant_types, ["authorization_code", "refresh_token"])

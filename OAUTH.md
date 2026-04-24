@@ -169,13 +169,13 @@ If no `clientId` is provided, the SDK:
 1. Discovers the registration endpoint from OAuth metadata
 2. Registers a new client with:
    - `client_name`: "Pi Coding Agent"
-   - `redirect_uris`: `["http://127.0.0.1:<active-callback-port>/mcp/oauth/callback"]`
+   - `redirect_uris`: `["http://localhost:<active-callback-port>/callback"]`
    - `grant_types`: `["authorization_code", "refresh_token"]`
 3. Stores the registered client credentials
 
 ### Callback Server
 
-A Node.js HTTP server runs on `127.0.0.1` at path `/mcp/oauth/callback`:
+A Node.js HTTP server runs on `localhost` at path `/callback`:
 
 - Preferred callback port is `19876` (or `MCP_OAUTH_CALLBACK_PORT` if set)
 - For dynamic registration, if the preferred port is busy, the adapter scans forward for a free local port
@@ -269,7 +269,7 @@ Some servers require pre-registered clients. Obtain a client ID from your OAuth 
 
 For dynamic registration, if the preferred callback port is busy, the adapter scans for the next available local port.
 
-For pre-registered OAuth clients (`oauth.clientId`), the callback redirect URI must match exactly. In that case, free the configured port or set `MCP_OAUTH_CALLBACK_PORT` to the registered port.
+For pre-registered OAuth clients (`oauth.clientId`), the callback redirect URI must match exactly. In that case, free the configured port or set `MCP_OAUTH_CALLBACK_PORT` to the registered port. For clients registered like Slack MCP's Claude-compatible `http://localhost:3118/callback`, set `MCP_OAUTH_CALLBACK_PORT=3118`.
 
 ### Browser doesn't open
 

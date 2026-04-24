@@ -29,7 +29,7 @@ import {
 
 // Callback server configuration
 const DEFAULT_OAUTH_CALLBACK_PORT = 19876
-const OAUTH_CALLBACK_PATH = "/mcp/oauth/callback"
+const OAUTH_CALLBACK_PATH = "/callback"
 
 let configuredOAuthCallbackPort = DEFAULT_OAUTH_CALLBACK_PORT
 
@@ -89,7 +89,7 @@ export class McpOAuthProvider implements OAuthClientProvider {
    */
   get redirectUrl(): string | undefined {
     if (this.usesClientCredentials) return undefined
-    return `http://127.0.0.1:${getOAuthCallbackPort()}${OAUTH_CALLBACK_PATH}`
+    return `http://localhost:${getOAuthCallbackPort()}${OAUTH_CALLBACK_PATH}`
   }
 
   /**
