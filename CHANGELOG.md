@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Ignored npm lockfiles and removed checked-in `package-lock.json` files.
+
 ## [2.5.3] - 2026-05-01
 
 ### Added
